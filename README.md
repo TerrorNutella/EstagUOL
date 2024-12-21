@@ -71,27 +71,9 @@ Cole o conteúdo abaixo no editor:
 
 ```bash
 #!/bin/bash
-
-# Diretório para armazenar os logs
-LOG_DIR="$HOME/nginx_logs"
-ONLINE_LOG="$LOG_DIR/nginx_online.log"
-OFFLINE_LOG="$LOG_DIR/nginx_offline.log"
-
-# Criar o diretório de logs, caso não exista
-mkdir -p "$LOG_DIR"
-
-# Obter a data e hora atual
-TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
-
-# Verificar o status do Nginx
+LOG_DIR="/home/guilas/nginx_logs"; mkdir -p "$LOG_DIR"
 STATUS=$(systemctl is-active nginx)
-
-# Logica de validação do serviço
-if [ "$STATUS" = "active" ]; then
-    echo "$TIMESTAMP | NGINX | ONLINE | O serviço está funcionando corretamente." >> "$ONLINE_LOG"
-else
-    echo "$TIMESTAMP | NGINX | OFFLINE | O serviço está parado ou inativo." >> "$OFFLINE_LOG"
-fi
+[ "$STATUS" = "active" ] && echo "$(date '+%Y-%m-%d %H:%M:%S') | NGINX | ONLINE | O serviço está funcionando corretamente." >> "$LOG_DIR/nginx_ONLINE.log" || echo "$(date '+%Y-%m-%d %H:%M:%S') | NGINX | OFFLINE | O serviço está parado ou inativo." >> "$LOG_DIR/nginx_OFFLINE.log"
 ```
 
 Salvar e sair do editor (Ctrl + O e Ctrl + X no Nano).
@@ -217,3 +199,15 @@ Confira se os arquivos estão sendo atualizados:
 tail -f ~/nginx_logs/nginx_online.log
 tail -f ~/nginx_logs/nginx_offline.log
 ```
+
+</br>
+
+
+## **8.Comprovação da Atividade**
+
+![Comprovação Atividade](img/prova.png)
+
+
+<br>
+
+
