@@ -217,13 +217,3 @@ Confira se os arquivos estão sendo atualizados:
 tail -f ~/nginx_logs/nginx_online.log
 tail -f ~/nginx_logs/nginx_offline.log
 ```
-
-</br>
-
-
-## **8.Comprovação da Atividade**
-
-![Comprovação Atividade](img/prova.png)
-
-
-<br>
